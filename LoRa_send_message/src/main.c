@@ -22,8 +22,8 @@ myprintf("Welcome to the LoRa DEMO example %s\r\n", MNAME);
 
 
   while (1){
-    LoRaSendInfo();
-    HAL_Delay(1000);
+    //LoRaSendInfo();
+    //HAL_Delay(1000);
   }
 }
 
