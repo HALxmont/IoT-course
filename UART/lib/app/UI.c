@@ -38,7 +38,7 @@ char t1[20];
 int8_t tagetRxBuff[UIBuffLength];
 
 //####################
-//##### ?LVL CASE ####
+//##### ?INFO CASE ####
 //####################
 
 memset(tagetRxBuff, 0, UIBuffLength); 

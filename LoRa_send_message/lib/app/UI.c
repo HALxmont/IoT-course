@@ -208,6 +208,7 @@ Delimiter(tagetRxBuff, LoRaRxBuff, "RTC_lora");
 			} //endwhile
 		UI.rxIndex=0;		//reset index
 		} // endif 	
+	myprintf("Se han seteado los parametros correctamente via LoRa!\r\n");
 	memset(tagetRxBuff, 0, LRBuffSize);  
 
    	}  //endif
