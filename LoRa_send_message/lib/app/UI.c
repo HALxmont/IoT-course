@@ -41,7 +41,7 @@ char t1[20];
 int8_t tagetRxBuff[UIBuffLength];
 
 //####################
-//##### ?INFO CASE ####
+//##### ?INFO CASE ###
 //####################
 
 memset(tagetRxBuff, 0, UIBuffLength); 
@@ -84,11 +84,11 @@ Delimiter(tagetRxBuff, LoRaRxBuff, "?LORA");
 //!RTC,13,07,2022,22,43,39,*
 //dd,MM,yyyy,HH,mm,ss
 memset(tagetRxBuff, 0, UIBuffLength); 
-Delimiter(tagetRxBuff, UI_Buffer, "!RTC");
+Delimiter(tagetRxBuff, UI_Buffer, "!RTC_uart");
 
 	if(  (UI.rxIndex>0))
 	{
-    	if(!strncmp(tagetRxBuff, "!RTC", 4)){
+    	if(!strncmp(tagetRxBuff, "!RTC_uart", 9)){
         	/* get the first token */
         	token = strtok(tagetRxBuff, delim);      
     		/* walk through other tokens */
@@ -141,6 +141,74 @@ Delimiter(tagetRxBuff, UI_Buffer, "!RTC");
 		UI.rxIndex=0;		//reset index
 		} // endif "!RTI"	
 	memset(tagetRxBuff, 0, UIBuffLength);  
+
+   	}  //endif
+
+
+//LORA
+//####################
+//##### RTC CASE ####
+//####################
+//RTC_lora,13,07,2025,22,43,41,*
+//dd,MM,yyyy,HH,mm,ss
+memset(tagetRxBuff, 0, LRBuffSize); 
+Delimiter(tagetRxBuff, LoRaRxBuff, "RTC_lora");
+
+	if(  (UI.rxIndex>0))
+	{
+    	if(!strncmp(tagetRxBuff, "RTC_lora", 8)){
+        	/* get the first token */
+        	token = strtok(tagetRxBuff, delim);      
+    		/* walk through other tokens */
+    		while( token != NULL ) {
+
+				token = strtok(NULL, delim);
+        		tokenIndex++;
+
+        		switch(tokenIndex){
+
+            		case 1: 	
+							t1[0] = token[0];
+                    		t1[1] = token[1];
+							t1[2] = '\0';
+							UTC_Day = atoi(t1);
+					break;
+
+	            	case 2: 
+							t1[0] = token[0];
+							t1[1] = token[1];
+							t1[2] = '\0';
+							UTC_Mon = atoi(t1);
+            		break;	
+	    
+					case 3: 
+							t1[0] = token[2];
+                    		t1[1] = token[3];
+                    		t1[2] = '\0';
+                    		UTC_Year = atoi(t1);
+					break;
+
+					case 4: 
+							t1[0] = token[0];
+                    		t1[1] = token[1];
+                    		t1[2] = '\0';
+                    		UTC_Hour = atoi(t1);
+					case 5: 
+							t1[0] = token[0];
+                    		t1[1] = token[1];
+                    		t1[2] = '\0';
+                    		UTC_Min = atoi(t1);
+					case 6: 
+							t1[0] = token[0];
+                    		t1[1] = token[1];
+                    		t1[2] = '\0';
+                    		UTC_Sec = atoi(t1);
+					break;
+   	     		} //endcase
+			} //endwhile
+		UI.rxIndex=0;		//reset index
+		} // endif 	
+	memset(tagetRxBuff, 0, LRBuffSize);  
 
    	}  //endif
 
