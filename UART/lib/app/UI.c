@@ -118,6 +118,8 @@ Delimiter(tagetRxBuff, UI_Buffer, "!RTC");
 			} //endwhile
 		UI.rxIndex=0;		//reset index
 		} // endif "!RTI"	
+
+		myprintf("Se han seteado los parametros correctamente!\r\n");
 	memset(tagetRxBuff, 0, UIBuffLength);  
 
    	}  //endif
@@ -127,7 +129,6 @@ Delimiter(tagetRxBuff, UI_Buffer, "!RTC");
 
 
 void UI_SendINFO(void){
-//HEAD,	LEVELS,	LastMeas_TIMESTAMP,	BoyaID,	GPSlat,	GPSlon,	VBattFanal,	VSolarChrg,	IBattFanal,	ISolarChrg, 	VBattMAX	VBattMIN	IBattMAX	IBattMIN	VSolMAX	VSolMIN	ISolMAX	ISolMIN	VBattHIalarm	VBattLOalarm	IBattHIalarm	IBattLOalarm	VSolHIalarm	VSolLOalarm	ISolHIalarm	ISolOalarm	Dint1	Dint2	Dint3	Tcore	TModem
 myprintf("UI INFO: %d/%d/%d %d:%d:%d, %d, %d \r\n", UTC_Day, UTC_Mon, UTC_Year, UTC_Hour, UTC_Min, UTC_Sec, v1, v2);
 
 }
