@@ -14,9 +14,11 @@ int main(void)
   while (1){
     //big loop
     DIO5_ON();
-    HAL_Delay(100); //wait 100ms
+   // Led1_Toggle()
+    HAL_Delay(500); //wait 100ms
     DIO5_OFF();
-    HAL_Delay(100); //wait 100ms
+   // Led1_Toggle()
+    HAL_Delay(500); //wait 100ms
   }
 }
 

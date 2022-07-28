@@ -63,25 +63,26 @@ Delimiter(tagetRxBuff, UI_Buffer, "?INFO");
 //##### ?LORA CASE ####
 //####################
 
-memset(tagetRxBuff, 0, UIBuffLength); 
+memset(tagetRxBuff, 0, LRBuffSize); 
 Delimiter(tagetRxBuff, LoRaRxBuff, "?LORA");
 
 	if(  (UI.rxIndex>0))
 	{
     	if(!strncmp(tagetRxBuff, "?LORA", 4)){  //DATA REQUEST
+			
+			LoRaSendInfo(); //send info through LoRa 
+			UI.rxIndex=0;   //reset index
 
-		LoRaSendInfo(); //send info through LoRa 
-		UI.rxIndex=0;		//reset index
-		
-		} // endif "?LVV"	
-	memset(tagetRxBuff, 0, UIBuffLength);  
+		} // end if "?LORA"	
+
+	memset(tagetRxBuff, 0, LRBuffSize);  
    	}  //endif
 
 
 //####################
 //##### !RTC CASE ####
 //####################
-//!RTC,13,07,2022,22,43,39,*
+//!RTC_uart,13,07,2022,22,43,39,*
 //dd,MM,yyyy,HH,mm,ss
 memset(tagetRxBuff, 0, UIBuffLength); 
 Delimiter(tagetRxBuff, UI_Buffer, "!RTC_uart");
@@ -205,10 +206,11 @@ Delimiter(tagetRxBuff, LoRaRxBuff, "RTC_lora");
                     		UTC_Sec = atoi(t1);
 					break;
    	     		} //endcase
+					myprintf("Se han seteado los parametros correctamente via LoRa!\r\n");
 			} //endwhile
 		UI.rxIndex=0;		//reset index
 		} // endif 	
-	myprintf("Se han seteado los parametros correctamente via LoRa!\r\n");
+	
 	memset(tagetRxBuff, 0, LRBuffSize);  
 
    	}  //endif

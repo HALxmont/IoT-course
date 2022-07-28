@@ -57,9 +57,9 @@ void USART3_IRQHandler(void)
 
   if (RESET != __HAL_UART_GET_FLAG(&huart3, UART_FLAG_IDLE))
   {
+    __HAL_UART_CLEAR_IDLEFLAG(&huart3);
     HAL_UART_DMAStop(&huart3);
     data_length = LRBuffSize - __HAL_DMA_GET_COUNTER(&dma3);
-    LoRaRxBuff[data_length + 1] = 0;
     UI_SetParams();
     HAL_UART_Receive_DMA(&huart3, LoRaRxBuff, LRBuffSize);
     __HAL_UART_CLEAR_IDLEFLAG(&huart3);
