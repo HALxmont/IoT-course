@@ -18,12 +18,14 @@ char LoraMessage[250];
 extern uint8_t UTC_Day;
 extern uint8_t UTC_Mon;
 extern uint8_t UTC_Year;
+
 extern uint8_t UTC_Hour;
 extern uint8_t UTC_Min;
 extern uint8_t UTC_Sec;
-
 extern uint8_t v1;
 extern uint8_t v2;
+
+
 
 extern UART_HandleTypeDef huart3;
 

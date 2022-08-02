@@ -19,7 +19,6 @@ myprintf("Hi I am %s\r\n", MNAME);
 myprintf("Welcome to the UART DEMO example %s\r\n", MNAME);
 
 
-
   while (1){
   }
 }

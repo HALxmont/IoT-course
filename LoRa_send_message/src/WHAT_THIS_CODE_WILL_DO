@@ -1,0 +1,22 @@
+Este codigo configura y utiliza el UART1 y UART3  de la placa
+- Se coniguran los pines rx y tx (revisar hardware init y def.h files)
+- Al iniciar el programa se escribira por uart1 una serie de mensajes (welcome message) (revisar main)
+- En UI.c existen algunas funciones que parsean los datos del usuario y responden (ejecutan) alguna accion en funcion de algunos mensajes predefinidos. Los cuales son:
+ * ?INFO : VIA UART1, ENVIARA INFORMACION AL USUARIO. En este caso una trama de datos que simula un calendario (day/month/year hh:mm:ss, v1, v2  | donde v1 y v2 son constantes seteadas en ui.c las cuales simulan algun valor que puede ser medido y guardado)
+ * ?LORA  :VIA UART3, ENVIARA INFORMACION VIA LORA AL USUARIO. En este caso una trama de datos que simula un calendario (day/month/year hh:mm:ss, v1, v2  | donde v1 y v2 son constantes seteadas en ui.c las cuales simulan algun valor que puede ser medido y guardado)
+    Para recibir la data debe haber otro modulo lora conectado y recibiendo.
+ * !RTC_uart: VIA uart1, permite al usuario setear informacion correspondiente al calendario de la trama datos que se obtiene al enviar ?INFO. Por ejemplo: !RTC,13,07,2022,22,43,39  
+    en este caso se ha seteado la fecha(13/07/22) y hora (22:43:39)
+
+ * RTC_lora:  VIA LORA (uart3), permite al usuario setear informacion correspondiente al calendario de la trama datos que se obtiene al enviar ?INFO. Por ejemplo: !RTC,13,07,2022,22,43,39  
+    en este caso se ha seteado la fecha(13/07/22) y hora (22:43:39)
+
+
+
+
+ COMO LEER O ESCRIBIR DATOS AL SERIAL
+
+ Se debe utilizar algun software que permita la comunicacion serial.
+ El software debe recibir los datos a 115200 baudrate (la placa esta configurada a esa velocidad tambien, revisar HardwareInit.c )
+
+ Ejemplos de software: PuTTY      

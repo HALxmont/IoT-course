@@ -14,6 +14,8 @@ char UI_Buffer[UI_Buff_Size];
 extern char      LoRaRxBuff[LRBuffSize];
 UI_SetParams_t UI; 
 HATypeDefAlarms  HA_Alarms;
+extern UART_HandleTypeDef huart3;
+extern UART_HandleTypeDef huart1;
 
 uint8_t UTC_Day;
 uint8_t UTC_Mon;
@@ -210,11 +212,9 @@ Delimiter(tagetRxBuff, LoRaRxBuff, "RTC_lora");
 			} //endwhile
 		UI.rxIndex=0;		//reset index
 		} // endif 	
-	
 	memset(tagetRxBuff, 0, LRBuffSize);  
-
+	HAL_UART_Transmit(&huart3, "Se han seteado los parametros correctamente via LoRa!\r\n", 56, 0x800);
    	}  //endif
-
 }//end function UI
 
 
