@@ -1,11 +1,11 @@
 
 
-* Existen pines configurados como salidas y como entradas.
+* Existen pines configurados como salidas y como entradas. (HardwareInit.c)
 * Las salidas estan conectadas a el led1, DIO3 y DIO5
 * Las entradas son SW2 y SW3
 
 
-* DIO5 se apaga y se prende en el big loop de main.c
+* DIO5 se apaga y se prende en el *big loop* de main.c
 * DIO3 esta conectado a una iterrupcion asociada al SW2. 
   Si este siwtch es presionado el estado de la salida sera igual al ultimo estado pero negado (toggle)
 * El Led1 se encendera y apagara con el SW3 

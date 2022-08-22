@@ -94,12 +94,12 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
   HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2);
 
-  __HAL_RCC_ADC1_CLK_ENABLE();
+  //__HAL_RCC_ADC1_CLK_ENABLE();
 
-  rccPeriphCLKInit.PeriphClockSelection = RCC_PERIPHCLK_ADC | RCC_PERIPHCLK_RTC;
-  rccPeriphCLKInit.AdcClockSelection = RCC_ADCPCLK2_DIV4;
+ // rccPeriphCLKInit.PeriphClockSelection = RCC_PERIPHCLK_ADC | RCC_PERIPHCLK_RTC;
+  //rccPeriphCLKInit.AdcClockSelection = RCC_ADCPCLK2_DIV4;
 
-  rccPeriphCLKInit.RTCClockSelection = RCC_RTCCLKSOURCE_LSI; // RTC clock source
+  //rccPeriphCLKInit.RTCClockSelection = RCC_RTCCLKSOURCE_LSI; // RTC clock source
 
   HAL_RCCEx_PeriphCLKConfig(&rccPeriphCLKInit);
 }

@@ -12,4 +12,4 @@ Este codigo configura y utiliza el UART1 de la placa
  Se debe utilizar algun software que permita la comunicacion serial.
  El software debe recibir los datos a 115200 baudrate (la placa esta configurada a esa velocidad tambien, revisar HardwareInit.c )
 
- Ejemplos de software: PuTTY      
+ Ejemplos de software: PuTTY, Arduino IDE, Shell linux      
