@@ -8,6 +8,15 @@ static void MX_GPIO_Init(void);
 
 
 
+
+// user global vars
+uint8_t counter;
+int8_t negative_counter;
+
+int16_t a, b;
+int8_t c[2];
+
+
 int main(void)
 {
 
@@ -15,22 +24,30 @@ int main(void)
   
   HAL_Init();
 
-
   /* Configure the system clock */
   SystemClock_Config();
 
 
-  /* Initialize all configured peripherals */
-  MX_GPIO_Init();
-
-
-
   while (1)
   {
-    
-	  HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
-	  HAL_Delay(1000);
-   
+    //crete a breakepoint in line 38 (a = counter * 10;)
+    //add to the wacth variables "a" and "counter". Launch the debugger and see what it's going on 0_0 
+    for (counter = 0; counter <= 5 ; counter++)
+    {
+      a = counter * 10;
+    }
+  
+    //crete a breakepoint in line 47 (b = negative_counter * 10;)
+    //crete a breakepoint in line 48 (c[0] = b;)
+    //crete a breakepoint in line 49 (c[1] = -1 * b;)
+    //add to the wacth variables "b", "negative_counter" and "c". Launch the debugger and see what it's going on 0_0
+    for (negative_counter = 0; negative_counter <= 5 ; negative_counter--)
+    {
+      b = negative_counter * 10;
+      c[0] = b;
+      c[1] = -1 * b;
+    }
+
   }
   
 }
@@ -64,26 +81,6 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-}
-
-
-static void MX_GPIO_Init(void)
-{
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
-
-  /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOC_CLK_ENABLE();
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
-
-  /*Configure GPIO pin : PC13 */
-  GPIO_InitStruct.Pin = GPIO_PIN_13;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
-
 }
 
 
