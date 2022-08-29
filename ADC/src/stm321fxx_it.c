@@ -79,7 +79,7 @@ void DMA1_Channel1_IRQHandler(void) // <----- The ISR Function We're Looking For
     else //MOVING AVERAGE OFF!   
       myprintf("%d,  %d,  %d, %d\n\r", adcValue[0], adcValue[1],adcValue[2] ,adcValue[3]);  //PRINT RAW VALUES
     
-    HAL_Delay(1000);
+    //HAL_Delay(1000);
   }
 }
 

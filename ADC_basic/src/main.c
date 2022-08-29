@@ -34,7 +34,7 @@ myprintf("Welcome to the basic ADC DEMO example \r\n", 1);
 	      raw_data = HAL_ADC_GetValue(&hadc1); //leemos el valor convertido
         myprintf("ADC RAW VALUE: %d\r\n", raw_data); //enviamos por serial el dato RAW
 
-        voltage = 3.3 * raw_data / 4096; 
+        voltage = (3.3 * raw_data) / 4096; 
 
         myprintf("VOLTAGE VALUE: %f\r\n", voltage); //enviamos por serial el dato convertido a voltaje
 

@@ -27,8 +27,8 @@ myprintf("Welcome to the UART DEMO example %d\r\n", 1);
 
 
   while (1){
-    //myprintf("%d,  %d,  %d, %d,\n\r", adcValue[0], adcValue[1],adcValue[2] ,adcValue[3]);  //PRINT RAW VALUES
-    HAL_Delay(1000);
+   // myprintf("%d,  %d,  %d, %d,\n\r", adcValue[0], adcValue[1],adcValue[2] ,adcValue[3]);  //PRINT RAW VALUES
+    //HAL_Delay(1000);
   }
 }
 
