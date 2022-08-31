@@ -32,7 +32,7 @@ motor_mode(1);
 
   while (1){
 
-    	  HAL_ADC_PollForConversion(&hadc1, 100); //convertimos (100ms de conversion)
+    	  HAL_ADC_PollForConversion(&hadc1, 10); //convertimos (100ms de conversion)
 	      raw_data = HAL_ADC_GetValue(&hadc1); //leemos el valor convertido
         myprintf("ADC RAW VALUE: %d\r\n", raw_data); //enviamos por serial el dato RAW
         set_new_pwm(raw_data);

@@ -73,14 +73,14 @@
 #define DIN1() HAL_GPIO_ReadPin(DIN1_Port, DIN1_Pin);
 
 #define DIN2_Port GPIOC
-#define DIN2_Pin GPIO_PIN_5
+#define DIN2_Pin GPIO_PIN_15
 #define DIN2_ON() HAL_GPIO_WritePin(DIN2_Port, DIN2_Pin, SET);
 #define DIN2_OFF() HAL_GPIO_WritePin(DIN2_Port, DIN2_Pin, RESET);
 #define DIN2_Toggle() HAL_GPIO_TogglePin(DIN2_Port, DIN2_Pin);
 #define DIN2() HAL_GPIO_ReadPin(DIN2_Port, DIN2_Pin);
 
-#define DIN3_Port GPIOB
-#define DIN3_Pin GPIO_PIN_12
+#define DIN3_Port GPIOC
+#define DIN3_Pin GPIO_PIN_14
 #define DIN3_ON() HAL_GPIO_WritePin(DIN3_Port, DIN3_Pin, SET);
 #define DIN3_OFF() HAL_GPIO_WritePin(DIN3_Port, DIN3_Pin, RESET);
 #define DIN3_Toggle() HAL_GPIO_TogglePin(DIN3_Port, DIN3_Pin);
